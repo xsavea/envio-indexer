@@ -1,0 +1,8 @@
+type Management_SettingUpdated {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  key: String!
+  value: String!
+  hash: Bytes!
+}

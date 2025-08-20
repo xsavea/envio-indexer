@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 1
+  start_block: 0
+  contracts:
+  - name: Management
+    address:
+    - 0x0775613d30d472245Af7649F7584D6F0F85e279f
+    handler: src/EventHandlers.ts
+    events:
+    - event: SettingUpdated(uint256 key, uint256 value)
+- id: 11155111
+  start_block: 0
+  contracts:
+  - name: Management
+    address:
+    - 0x0775613d30d472245Af7649F7584D6F0F85e279f
+    handler: src/EventHandlers.ts
+    events:
+    - event: SettingUpdated(uint256 key, uint256 value)
+unordered_multichain_mode: true
+preload_handlers: true
