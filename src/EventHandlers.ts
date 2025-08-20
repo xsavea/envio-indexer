@@ -34,6 +34,7 @@ Management.SettingUpdated.handler(async ({ event, context }) => {
     entity = { ...entity, value: monthValue };
   }
 
+  /// Filter percetage change event and update value
   if (Number(event.params.key) == 9) {
     entity = { ...entity, value: `${formatUnits(event.params.value, 18)}%` };
   }
