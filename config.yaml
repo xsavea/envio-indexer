@@ -1,23 +1,31 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
-name: envio-indexer
-networks:
-- id: 1
-  start_block: 0
-  contracts:
+name: savea-envio-indexer
+description: Indexer for the Savea Management contract
+field_selection:
+  transaction_fields:
+    - "from"
+    - "to"
+    - "hash"
+    - "value"
+# Global contract definitions that must contain all definitions except
+# addresses. We can share a single handler/abi/event definitions
+# for contracts across multiple chains
+contracts:
   - name: Management
-    address:
-    - 0x0775613d30d472245Af7649F7584D6F0F85e279f
     handler: src/EventHandlers.ts
     events:
-    - event: SettingUpdated(uint256 key, uint256 value)
-- id: 11155111
-  start_block: 0
-  contracts:
-  - name: Management
-    address:
-    - 0x0775613d30d472245Af7649F7584D6F0F85e279f
-    handler: src/EventHandlers.ts
-    events:
-    - event: SettingUpdated(uint256 key, uint256 value)
+      - event: SettingUpdated(uint256 key, uint256 value)
 unordered_multichain_mode: true
-preload_handlers: true
+networks:
+  - id: 1 # Ethereum
+    start_block: 0
+    contracts:
+      - name: Management
+        address:
+          - 0x0775613d30d472245Af7649F7584D6F0F85e279f
+  - id: 11155111 # Ethereum Sepolia
+    start_block: 0
+    contracts:
+      - name: Management
+        address:
+          - 0x711cCcce385388DAED5b4AD9eEf346D1D935082c
