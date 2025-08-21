@@ -1,28 +1,102 @@
+# This entity stores SettingUpdated events
 type Management_SettingUpdated {
   id: ID!
   chainId: String!
   timestamp: BigInt!
-  key: String!
-  value: String!
+  key: String! # The coresponding key of the updated setting
+  value: String! # The value of the updated setting
   hash: Bytes!
 }
 
+# This entity stores TokensPurchased events
 type Management_TokensPurchased {
   id: ID!
   chainId: String!
   timestamp: BigInt!
-  buyer: String!
-  currencyAmount: String!
-  tokenAmount: String!
+  buyer: String! # Address of the buyer
+  currencyAmount: String! # The amount of currency spent
+  tokenAmount: String! # The amount of tokens received
   hash: Bytes!
 }
 
+# This entity stores TokensSold events
 type Management_TokensSold {
   id: ID!
   chainId: String!
   timestamp: BigInt!
-  seller: String!
-  tokenAmount: String!
-  currencyAmount: String!
+  seller: String! # Address of the seller
+  tokenAmount: String! # The  amount of tokens sold
+  currencyAmount: String! # The amount of currency received
+  hash: Bytes!
+}
+
+# This entity stores Withdraw events
+type Management_Withdraw {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  withdrawnTo: String! # The address where funds were withdrawn to
+  token: String! # The address of the token that was withdrawn
+  amount: String! # The amount of tokens withdrawn
+  hash: Bytes!
+}
+
+# This entity stores NFTWithdraw events
+type Management_NFTWithdraw {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  withdrawnTo: String! # The address where NFT was withdrawn to
+  nftContract: String! # The address of the NFT contract
+  nftID: BigInt! # The ID of the NFT
+  hash: Bytes!
+}
+
+# This entity stores CurrencyUpdated events
+type Management_CurrencyUpdated {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  newCurrencyAddress: String! # The new currency address
+  hash: Bytes!
+}
+
+# This entity stores TokenUpdated events
+type Management_TokenUpdated {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  newTokenAddress: String! # The new token address
+  hash: Bytes!
+}
+
+# This entity stores SupportedNFTUpdated events
+type Management_SupportedNftUpdated {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  nftAddress: String! # Address of the NFT contract
+  isSupported: Boolean! # true if supported, false otherwise
+  hash: Bytes!
+}
+
+# This entity stores FeeStructureUpdated events
+type Management_FeeStructureUpdated {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  fee: BigInt! # Fee amount in basis points
+  period: BigInt! # Period in seconds
+  minimumAmount: BigInt! # Minimum tokens required
+  hash: Bytes!
+}
+
+# This entity stores FeeCharged events
+type Management_FeeCharged {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  chargedFrom: String! # Wallet that was charged
+  amount: String! # Amount charged
   hash: Bytes!
 }
