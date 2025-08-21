@@ -6,3 +6,23 @@ type Management_SettingUpdated {
   value: String!
   hash: Bytes!
 }
+
+type Management_TokensPurchased {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  buyer: String!
+  currencyAmount: String!
+  tokenAmount: String!
+  hash: Bytes!
+}
+
+type Management_TokensSold {
+  id: ID!
+  chainId: String!
+  timestamp: BigInt!
+  seller: String!
+  tokenAmount: String!
+  currencyAmount: String!
+  hash: Bytes!
+}

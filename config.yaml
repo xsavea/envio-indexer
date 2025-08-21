@@ -12,9 +12,11 @@ field_selection:
 # for contracts across multiple chains
 contracts:
   - name: Management
-    handler: src/EventHandlers.ts
+    handler: src/index.ts
     events:
       - event: SettingUpdated(uint256 key, uint256 value)
+      - event: TokensPurchased(address indexed buyer, uint256 currencyAmount, uint256 tokenAmount)
+      - event: TokensSold(address indexed seller, uint256 tokenAmount, uint256 currencyAmount)
 unordered_multichain_mode: true
 networks:
   - id: 1 # Ethereum
