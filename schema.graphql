@@ -71,7 +71,7 @@ type Management_TokenUpdated {
 }
 
 # This entity stores SupportedNFTUpdated events
-type Management_SupportedNftUpdated {
+type Management_SupportedNFTUpdated {
   id: ID!
   chainId: String!
   timestamp: BigInt!

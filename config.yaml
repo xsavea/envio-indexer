@@ -17,6 +17,13 @@ contracts:
       - event: SettingUpdated(uint256 key, uint256 value)
       - event: TokensPurchased(address indexed buyer, uint256 currencyAmount, uint256 tokenAmount)
       - event: TokensSold(address indexed seller, uint256 tokenAmount, uint256 currencyAmount)
+      - event: Withdraw(address to, address token, uint256 amount)
+      - event: NFTWithdraw(address to, address nftContract, uint256 id)
+      - event: CurrencyUpdated(address newCurrency)
+      - event: TokenUpdated(address newToken)
+      - event: SupportedNFTUpdated(address indexed newNFTToken, bool isSupported)
+      - event: FeeStructureUpdated((uint256 , uint256 , uint256 ) feeStructure)
+      - event: FeeCharged(address indexed wallet, uint256 amount)
 unordered_multichain_mode: true
 networks:
   - id: 1 # Ethereum
