@@ -1,7 +1,5 @@
 import { Management, Management_SupportedNFTUpdated } from "generated";
 
-import { formatUnits } from "viem";
-
 Management.SupportedNFTUpdated.handler(async ({ event, context }) => {
   let entity: Management_SupportedNFTUpdated = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,

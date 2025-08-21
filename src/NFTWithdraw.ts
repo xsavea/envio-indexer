@@ -1,7 +1,5 @@
 import { Management, Management_NFTWithdraw } from "generated";
 
-import { formatUnits } from "viem";
-
 Management.NFTWithdraw.handler(async ({ event, context }) => {
   let entity: Management_NFTWithdraw = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,

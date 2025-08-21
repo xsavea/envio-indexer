@@ -85,7 +85,7 @@ type Management_FeeStructureUpdated {
   id: ID!
   chainId: String!
   timestamp: BigInt!
-  fee: BigInt! # Fee amount in basis points
+  fee: String! # Fee amount in percentages
   period: BigInt! # Period in seconds
   minimumAmount: BigInt! # Minimum tokens required
   hash: Bytes!
