@@ -6,3 +6,4 @@ import "./NFTWithdraw";
 import "./CurrencyUpdated";
 import "./TokenUpdated";
 import "./SupportedNFTUpdated";
+import "./FeeStructureUpdated";
